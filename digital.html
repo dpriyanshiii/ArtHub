@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Art | ArtHub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-1.2.1&auto=format&fit=crop&w=1791&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #f0e6d2;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(20, 15, 10, 0.85);
+            border-bottom: 1px solid #5a4a3a;
+        }
+
+        h1, h2 {
+            font-family: 'Cinzel', serif;
+            color: #e8d8b5;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: #e8d8b5;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border-bottom: 1px solid transparent;
+        }
+
+        nav a:hover {
+            border-bottom: 1px solid #e8d8b5;
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .collection-info {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: #d4c9b8;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .art-item {
+            height: 280px;
+            background-color: rgba(20, 15, 10, 0.5);
+            border: 1px dashed #5a4a3a;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .art-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .art-image {
+            height: 200px;
+            background-color: rgba(90, 74, 58, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4c9b8;
+            font-size: 1.1rem;
+        }
+
+        .art-details {
+            padding: 1rem;
+            background-color: rgba(20, 15, 10, 0.7);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .art-title {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+            color: #e8d8b5;
+        }
+
+        .art-artist {
+            font-size: 0.9rem;
+            color: #d4c9b8;
+            font-style: italic;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .page-btn {
+            padding: 0.5rem 1rem;
+            background-color: rgba(90, 74, 58, 0.6);
+            color: #e8d8b5;
+            border: 1px solid #5a4a3a;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .page-btn:hover, .page-btn.active {
+            background-color: #5a4a3a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background-color: rgba(20, 15, 10, 0.9);
+            margin-top: 4rem;
+            border-top: 1px solid #5a4a3a;
+            font-size: 0.9rem;
+            color: #d4c9b8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Digital Art Gallery</h1>
+        <nav>
+            <a href="all.html"><i class="fas fa-arrow-left"></i> Back to Gallery</a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h2>Digital Art Collection</h2>
+        <p class="collection-info">20 digital artworks displayed</p>
+        
+        <div class="gallery-grid">
+            <!-- Digital Artwork 1-5 -->
+            <div class="art-item">
+                <div class="art-image">Digital Art 1</div>
+                <div class="art-details">
+                    <div class="art-title">Caffienated Mistakes</div>
+                    <div class="art-artist">by Priyanshi Dalwadi</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 2</div>
+                <div class="art-details">
+                    <div class="art-title">Cyberpunk Alley</div>
+                    <div class="art-artist">by Maria Rodriguez</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 3</div>
+                <div class="art-details">
+                    <div class="art-title">Pixel Sunset</div>
+                    <div class="art-artist">by Jordan Smith</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 4</div>
+                <div class="art-details">
+                    <div class="art-title">Vector Dreams</div>
+                    <div class="art-artist">by Taylor Kim</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 5</div>
+                <div class="art-details">
+                    <div class="art-title">Glitch Portrait</div>
+                    <div class="art-artist">by Sam Wilson</div>
+                </div>
+            </div>
+
+            <!-- Digital Artwork 6-10 -->
+            <div class="art-item">
+                <div class="art-image">Digital Art 6</div>
+                <div class="art-details">
+                    <div class="art-title">Digital Watercolor</div>
+                    <div class="art-artist">by Jamie Lee</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 7</div>
+                <div class="art-details">
+                    <div class="art-title">Abstract Code</div>
+                    <div class="art-artist">by Ryan Park</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 8</div>
+                <div class="art-details">
+                    <div class="art-title">3D Sculpture</div>
+                    <div class="art-artist">by Casey Jones</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 9</div>
+                <div class="art-details">
+                    <div class="art-title">Fractal Universe</div>
+                    <div class="art-artist">by Morgan Taylor</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 10</div>
+                <div class="art-details">
+                    <div class="art-title">Digital Collage</div>
+                    <div class="art-artist">by Avery Clark</div>
+                </div>
+            </div>
+
+            <!-- Digital Artwork 11-15 -->
+            <div class="art-item">
+                <div class="art-image">Digital Art 11</div>
+                <div class="art-details">
+                    <div class="art-title">UI Concept</div>
+                    <div class="art-artist">by Blake Johnson</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 12</div>
+                <div class="art-details">
+                    <div class="art-title">Character Design</div>
+                    <div class="art-artist">by Riley Smith</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 13</div>
+                <div class="art-details">
+                    <div class="art-title">Isometric City</div>
+                    <div class="art-artist">by Cameron Wu</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 14</div>
+                <div class="art-details">
+                    <div class="art-title">Digital Sketch</div>
+                    <div class="art-artist">by Jordan Lee</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 15</div>
+                <div class="art-details">
+                    <div class="art-title">NFT Creation</div>
+                    <div class="art-artist">by Taylor Morgan</div>
+                </div>
+            </div>
+
+            <!-- Digital Artwork 16-20 -->
+            <div class="art-item">
+                <div class="art-image">Digital Art 16</div>
+                <div class="art-details">
+                    <div class="art-title">VR Concept</div>
+                    <div class="art-artist">by Alex Park</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 17</div>
+                <div class="art-details">
+                    <div class="art-title">Digital Painting</div>
+                    <div class="art-artist">by Casey Chen</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 18</div>
+                <div class="art-details">
+                    <div class="art-title">Low Poly Art</div>
+                    <div class="art-artist">by Jamie Wilson</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 19</div>
+                <div class="art-details">
+                    <div class="art-title">Cyber Portrait</div>
+                    <div class="art-artist">by Ryan Taylor</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Digital Art 20</div>
+                <div class="art-details">
+                    <div class="art-title">Digital Illustration</div>
+                    <div class="art-artist">by Sam Johnson</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 ArtHub | Digital Art Collection</p>
+    </footer>
+</body>
+</html>

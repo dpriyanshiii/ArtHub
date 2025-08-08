@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketches | ArtHub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-1.2.1&auto=format&fit=crop&w=1791&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #f0e6d2;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(20, 15, 10, 0.85);
+            border-bottom: 1px solid #5a4a3a;
+        }
+
+        h1, h2 {
+            font-family: 'Cinzel', serif;
+            color: #e8d8b5;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: #e8d8b5;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border-bottom: 1px solid transparent;
+        }
+
+        nav a:hover {
+            border-bottom: 1px solid #e8d8b5;
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .collection-info {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: #d4c9b8;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .art-item {
+            height: 280px;
+            background-color: rgba(20, 15, 10, 0.5);
+            border: 1px dashed #5a4a3a;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .art-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .art-image {
+            height: 200px;
+            background-color: rgba(90, 74, 58, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4c9b8;
+            font-size: 1.1rem;
+        }
+
+        .art-details {
+            padding: 1rem;
+            background-color: rgba(20, 15, 10, 0.7);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .art-title {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+            color: #e8d8b5;
+        }
+
+        .art-artist {
+            font-size: 0.9rem;
+            color: #d4c9b8;
+            font-style: italic;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .page-btn {
+            padding: 0.5rem 1rem;
+            background-color: rgba(90, 74, 58, 0.6);
+            color: #e8d8b5;
+            border: 1px solid #5a4a3a;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .page-btn:hover, .page-btn.active {
+            background-color: #5a4a3a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background-color: rgba(20, 15, 10, 0.9);
+            margin-top: 4rem;
+            border-top: 1px solid #5a4a3a;
+            font-size: 0.9rem;
+            color: #d4c9b8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sketches Gallery</h1>
+        <nav>
+            <a href="all.html"><i class="fas fa-arrow-left"></i> Back to Gallery</a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h2>Sketches Collection</h2>
+        <p class="collection-info">28 sketches displayed</p>
+        
+        <div class="gallery-grid">
+            <!-- Sketches 1-5 -->
+            <div class="art-item">
+                <div class="art-image">Sketch 1</div>
+                <div class="art-details">
+                    <div class="art-title">Charcoal Portrait</div>
+                    <div class="art-artist">by xyzzzz</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 2</div>
+                <div class="art-details">
+                    <div class="art-title">Urban Sketch</div>
+                    <div class="art-artist">by James Wilson</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 3</div>
+                <div class="art-details">
+                    <div class="art-title">Figure Study</div>
+                    <div class="art-artist">by Sophia Chen</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 4</div>
+                <div class="art-details">
+                    <div class="art-title">Architectural Draft</div>
+                    <div class="art-artist">by Miguel Rodriguez</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 5</div>
+                <div class="art-details">
+                    <div class="art-title">Gesture Drawing</div>
+                    <div class="art-artist">by Olivia Martin</div>
+                </div>
+            </div>
+
+            <!-- Sketches 6-10 -->
+            <div class="art-item">
+                <div class="art-image">Sketch 6</div>
+                <div class="art-details">
+                    <div class="art-title">Pencil Landscape</div>
+                    <div class="art-artist">by Daniel Kim</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 7</div>
+                <div class="art-details">
+                    <div class="art-title">Ink Illustration</div>
+                    <div class="art-artist">by Isabella Garcia</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 8</div>
+                <div class="art-details">
+                    <div class="art-title">Quick Study</div>
+                    <div class="art-artist">by Ethan Taylor</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 9</div>
+                <div class="art-details">
+                    <div class="art-title">Concept Art</div>
+                    <div class="art-artist">by Ava Johnson</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 10</div>
+                <div class="art-details">
+                    <div class="art-title">Still Life</div>
+                    <div class="art-artist">by Noah Smith</div>
+                </div>
+            </div>
+
+            <!-- Sketches 11-15 -->
+            <div class="art-item">
+                <div class="art-image">Sketch 11</div>
+                <div class="art-details">
+                    <div class="art-title">Animal Sketch</div>
+                    <div class="art-artist">by Liam Brown</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 12</div>
+                <div class="art-details">
+                    <div class="art-title">Fashion Design</div>
+                    <div class="art-artist">by Emma Wilson</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 13</div>
+                <div class="art-details">
+                    <div class="art-title">Comic Panel</div>
+                    <div class="art-artist">by Lucas Martinez</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 14</div>
+                <div class="art-details">
+                    <div class="art-title">Botanical Study</div>
+                    <div class="art-artist">by Mia Anderson</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 15</div>
+                <div class="art-details">
+                    <div class="art-title">Character Design</div>
+                    <div class="art-artist">by Benjamin Lee</div>
+                </div>
+            </div>
+
+            <!-- Sketches 16-20 -->
+            <div class="art-item">
+                <div class="art-image">Sketch 16</div>
+                <div class="art-details">
+                    <div class="art-title">Perspective Study</div>
+                    <div class="art-artist">by Charlotte Clark</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 17</div>
+                <div class="art-details">
+                    <div class="art-title">Portrait Sketch</div>
+                    <div class="art-artist">by Henry Adams</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 18</div>
+                <div class="art-details">
+                    <div class="art-title">Abstract Sketch</div>
+                    <div class="art-artist">by Amelia White</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 19</div>
+                <div class="art-details">
+                    <div class="art-title">Travel Sketch</div>
+                    <div class="art-artist">by William Scott</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 20</div>
+                <div class="art-details">
+                    <div class="art-title">Storyboard Frame</div>
+                    <div class="art-artist">by Harper Young</div>
+                </div>
+            </div>
+
+            <!-- Sketches 21-25 -->
+            <div class="art-item">
+                <div class="art-image">Sketch 21</div>
+                <div class="art-details">
+                    <div class="art-title">Gesture Drawing</div>
+                    <div class="art-artist">by Mason King</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 22</div>
+                <div class="art-details">
+                    <div class="art-title">Architectural Sketch</div>
+                    <div class="art-artist">by Evelyn Hall</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 23</div>
+                <div class="art-details">
+                    <div class="art-title">Figure Drawing</div>
+                    <div class="art-artist">by Oliver Green</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 24</div>
+                <div class="art-details">
+                    <div class="art-title">Concept Sketch</div>
+                    <div class="art-artist">by Abigail Hill</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 25</div>
+                <div class="art-details">
+                    <div class="art-title">Pencil Study</div>
+                    <div class="art-artist">by Daniel Carter</div>
+                </div>
+            </div>
+
+            <!-- Sketches 26-28 -->
+            <div class="art-item">
+                <div class="art-image">Sketch 26</div>
+                <div class="art-details">
+                    <div class="art-title">Ink Wash</div>
+                    <div class="art-artist">by Sofia Reed</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 27</div>
+                <div class="art-details">
+                    <div class="art-title">Quick Sketch</div>
+                    <div class="art-artist">by Jackson Baker</div>
+                </div>
+            </div>
+            <div class="art-item">
+                <div class="art-image">Sketch 28</div>
+                <div class="art-details">
+                    <div class="art-title">Charcoal Study</div>
+                    <div class="art-artist">by Lily Parker</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 ArtHub | Sketch Collection</p>
+    </footer>
+</body>
+</html>

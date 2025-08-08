@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | ArtHub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-1.2.1&auto=format&fit=crop&w=1791&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #f0e6d2;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(20, 15, 10, 0.85);
+            border-bottom: 1px solid #5a4a3a;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            font-family: 'Cinzel', serif;
+            color: #e8d8b5;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .auth-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.5px;
+            border: 1px solid #5a4a3a;
+        }
+
+        .login-btn {
+            background-color: rgba(90, 74, 58, 0.6);
+            color: #e8d8b5;
+        }
+
+        .login-btn:hover {
+            background-color: rgba(90, 74, 58, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .signup-btn {
+            background-color: #5a4a3a;
+            color: #f0e6d2;
+        }
+
+        .signup-btn:hover {
+            background-color: #6b5a48;
+            transform: translateY(-2px);
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            background-color: rgba(20, 15, 10, 0.7);
+            border-radius: 8px;
+            border: 1px solid #5a4a3a;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-family: 'Cinzel', serif;
+            color: #e8d8b5;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            border-bottom: 1px solid #5a4a3a;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #d4c9b8;
+        }
+
+        .resource-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .resource-card {
+            background-color: rgba(20, 15, 10, 0.85);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+            transition: all 0.3s;
+            border: 1px solid #5a4a3a;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+        }
+        
+        .resource-card h3 {
+            color: #e8d8b5;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #5a4a3a;
+            padding-bottom: 0.5rem;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .resource-item {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .resource-item:before {
+            content: "→";
+            color: #e8d8b5;
+            position: absolute;
+            left: 0;
+        }
+        
+        .resource-item a {
+            color: #d4c9b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .resource-item a:hover {
+            color: #e8d8b5;
+            text-decoration: underline;
+        }
+        
+        .resource-meta {
+            font-size: 0.8rem;
+            color: #a89984;
+            margin-top: 0.3rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background-color: rgba(20, 15, 10, 0.9);
+            margin-top: 4rem;
+            border-top: 1px solid #5a4a3a;
+            font-size: 0.9rem;
+            color: #d4c9b8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ArtHub</h1>
+        <div class="auth-buttons">
+            <a href="login.html" class="auth-btn login-btn">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+            <a href="signup.html" class="auth-btn signup-btn">
+                <i class="fas fa-user-plus"></i> Sign Up
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Art Resources</h2>
+            <p>Traditional techniques and digital tools for today's artists</p>
+            
+            <div class="resource-categories">
+                <div class="resource-card">
+                    <h3>Painting Techniques</h3>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Oil Painting Masterclass</a>
+                        <div class="resource-meta">Video Course · 12 hours</div>
+                    </div>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Watercolor Basics</a>
+                        <div class="resource-meta">Free eBook · 150 pages</div>
+                    </div>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Tempera Painting Guide</a>
+                        <div class="resource-meta">Article · 15 min read</div>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>Drawing Resources</h3>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Figure Drawing Anatomy</a>
+                        <div class="resource-meta">Reference Book</div>
+                    </div>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Perspective Made Easy</a>
+                        <div class="resource-meta">Tutorial Series</div>
+                    </div>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Charcoal Techniques</a>
+                        <div class="resource-meta">Video Tutorial</div>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>Art History</h3>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Renaissance Masters</a>
+                        <div class="resource-meta">Documentary Series</div>
+                    </div>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Modern Art Movements</a>
+                        <div class="resource-meta">Interactive Timeline</div>
+                    </div>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Asian Art History</a>
+                        <div class="resource-meta">University Course</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Materials & Supplies</h2>
+            <p>Quality tools for traditional and digital artists</p>
+            
+            <div class="resource-categories">
+                <div class="resource-card">
+                    <h3>Recommended Brands</h3>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Oil Paints</a>
+                        <div class="resource-meta">Professional Grade</div>
+                    </div>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Brushes</a>
+                        <div class="resource-meta">Natural & Synthetic</div>
+                    </div>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Drawing Papers</a>
+                        <div class="resource-meta">Archival Quality</div>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <h3>Digital Tools</h3>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Graphic Tablets</a>
+                        <div class="resource-meta">Reviews & Comparisons</div>
+                    </div>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Painting Software</a>
+                        <div class="resource-meta">Free & Paid Options</div>
+                    </div>
+                    <div class="resource-item">
+                        <a href="#" target="_blank">Color Management</a>
+                        <div class="resource-meta">Printing Guide</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ArtHub | Preserving the tradition while embracing the future</p>
+    </footer>
+</body>
+</html>

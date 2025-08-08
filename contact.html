@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | ArtHub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-1.2.1&auto=format&fit=crop&w=1791&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #f0e6d2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(20, 15, 10, 0.85);
+            border-bottom: 1px solid #5a4a3a;
+        }
+
+        h1, h2 {
+            font-family: 'Cinzel', serif;
+            color: #e8d8b5;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: #e8d8b5;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border-bottom: 1px solid transparent;
+        }
+
+        nav a:hover {
+            border-bottom: 1px solid #e8d8b5;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #d4c9b8;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            background-color: rgba(20, 15, 10, 0.85);
+            border-radius: 8px;
+            padding: 2rem;
+            border: 1px solid #5a4a3a;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.4);
+        }
+
+        .contact-card h3 {
+            color: #e8d8b5;
+            font-family: 'Cinzel', serif;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .contact-card h3 i {
+            color: #a89984;
+            font-size: 1.5rem;
+        }
+
+        .contact-info {
+            color: #d4c9b8;
+            line-height: 1.8;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .contact-info i {
+            color: #a89984;
+            width: 1.5rem;
+            text-align: center;
+        }
+
+        .contact-form {
+            background-color: rgba(20, 15, 10, 0.85);
+            border-radius: 8px;
+            padding: 2.5rem;
+            border: 1px solid #5a4a3a;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #d4c9b8;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(90, 74, 58, 0.3);
+            border: 1px solid #5a4a3a;
+            border-radius: 4px;
+            font-size: 1rem;
+            color: #f0e6d2;
+            transition: all 0.3s;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #e8d8b5;
+            box-shadow: 0 0 0 2px rgba(232, 216, 181, 0.2);
+        }
+
+        .btn-submit {
+            padding: 12px 24px;
+            background-color: #5a4a3a;
+            color: #e8d8b5;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-family: 'Cinzel', serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn-submit:hover {
+            background-color: #6d5c4a;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: rgba(20, 15, 10, 0.9);
+            border-top: 1px solid #5a4a3a;
+            font-size: 0.9rem;
+            color: #d4c9b8;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ArtHub</h1>
+        <nav>
+            <a href="home.html"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="contact-container">
+            <h2>Connect With Us</h2>
+            <p class="contact-intro">
+                Have questions, suggestions, or want to collaborate? Reach out to our team of art enthusiasts and professionals.
+                We're here to help you navigate the world of art and creativity.
+            </p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> Our Studio</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-building"></i> ArtHub Gallery & Studios</p>
+                        <p><i class="fas fa-street-view"></i> 123 Renaissance Boulevard</p>
+                        <p><i class="fas fa-city"></i> Florence, Italy 50123</p>
+                        <p><i class="fas fa-clock"></i> Open Tue-Sun, 10AM-6PM</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <h3><i class="fas fa-envelope"></i> Contact Info</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone-alt"></i> +39 055 123 4567</p>
+                        <p><i class="fas fa-envelope"></i> info@arthub.com</p>
+                        <p><i class="fas fa-headset"></i> Support: support@arthub.com</p>
+                        <p><i class="fas fa-users"></i> Collaborations: collab@arthub.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3><i class="fas fa-paper-plane"></i> Send Us a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" required placeholder="Enter your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="Enter your email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" required>
+                            <option value="">Select a subject</option>
+                            <option>General Inquiry</option>
+                            <option>Artist Submission</option>
+                            <option>Event Collaboration</option>
+                            <option>Technical Support</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" required placeholder="Type your message here..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ArtHub | Preserving the tradition while embracing the future</p>
+    </footer>
+</body>
+</html>
