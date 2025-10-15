@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paintings | ArtHub</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -19,7 +18,7 @@
         }
 
         header {
-            padding: 2rem;
+            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -45,16 +44,56 @@
             text-align: center;
         }
 
-        nav a {
-            color: #e8d8b5;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            border-bottom: 1px solid transparent;
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
         }
 
-        nav a:hover {
-            border-bottom: 1px solid #e8d8b5;
+        .nav-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(90, 74, 58, 0.6);
+            color: #e8d8b5;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid #5a4a3a;
+        }
+
+        .nav-icon:hover {
+            background-color: rgba(90, 74, 58, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .nav-icon i {
+            font-size: 1.2rem;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.5px;
+            border: 1px solid #5a4a3a;
+            font-size: 0.95rem;
+            background-color: rgba(90, 74, 58, 0.6);
+            color: #e8d8b5;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-btn:hover {
+            background-color: rgba(90, 74, 58, 0.8);
+            transform: translateY(-2px);
         }
 
         .main-content {
@@ -72,41 +111,49 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
         }
 
         .art-item {
-            height: 280px;
-            background-color: rgba(20, 15, 10, 0.5);
-            border: 1px dashed #5a4a3a;
+            height: 350px;
+            background-color: rgba(20, 15, 10, 0.7);
+            border: 1px solid #5a4a3a;
             border-radius: 8px;
             display: flex;
             flex-direction: column;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
         }
 
         .art-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.4);
         }
 
         .art-image {
-            height: 200px;
-            background-color: rgba(90, 74, 58, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #d4c9b8;
-            font-size: 1.1rem;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .art-image::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
         }
 
         .art-details {
-            padding: 1rem;
-            background-color: rgba(20, 15, 10, 0.7);
+            padding: 1.2rem;
+            background-color: rgba(20, 15, 10, 0.9);
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -117,12 +164,20 @@
             font-weight: bold;
             margin-bottom: 0.3rem;
             color: #e8d8b5;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
         }
 
         .art-artist {
             font-size: 0.9rem;
             color: #d4c9b8;
             font-style: italic;
+        }
+
+        .art-year {
+            font-size: 0.8rem;
+            color: #a89a87;
+            margin-top: 0.3rem;
         }
 
         .pagination {
@@ -140,6 +195,7 @@
             border-radius: 4px;
             cursor: pointer;
             transition: all 0.3s;
+            font-family: 'Playfair Display', serif;
         }
 
         .page-btn:hover, .page-btn.active {
@@ -155,256 +211,277 @@
             font-size: 0.9rem;
             color: #d4c9b8;
         }
+
+        .tooltip {
+            position: relative;
+        }
+        
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(20, 15, 10, 0.9);
+            color: #e8d8b5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            border: 1px solid #5a4a3a;
+            z-index: 100;
+        }
+        
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .view-btn {
+            margin-top: 0.5rem;
+            padding: 0.4rem 0.8rem;
+            background-color: rgba(90, 74, 58, 0.5);
+            color: #e8d8b5;
+            border: 1px solid #5a4a3a;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .view-btn:hover {
+            background-color: rgba(90, 74, 58, 0.8);
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Paintings Gallery</h1>
-        <nav>
-            <a href="all.html"><i class="fas fa-arrow-left"></i> Back to Gallery</a>
-        </nav>
+        <h1>Art Hub</h1>
+        <div class="nav-container">
+            <a href="home.html" class="nav-icon tooltip" data-tooltip="Home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="profile.html" class="nav-icon tooltip" data-tooltip="Profile">
+                <i class="fas fa-user"></i>
+            </a>
+            <a href="admin.html" class="nav-icon tooltip" data-tooltip="Admin">
+                <i class="fas fa-cog"></i>
+            </a>
+        </div>
     </header>
 
     <div class="main-content">
-        <h2>Paintings Collection</h2>
-        <p class="collection-info">32 paintings displayed</p>
+        <a href="all.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Gallery
+        </a>
+
+        <h2>Masterpieces Collection</h2>
+        <p class="collection-info">20 iconic paintings displayed</p>
         
         <div class="gallery-grid">
-            <!-- Paintings 1-5 -->
+            <!-- Famous Paintings 1-10 -->
             <div class="art-item">
-                <div class="art-image">Painting 1</div>
-                <div class="art-details">
-                    <div class="art-title">Sunset</div>
-                    <div class="art-artist">by abccc</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 2</div>
-                <div class="art-details">
-                    <div class="art-title">Mountain Serenity</div>
-                    <div class="art-artist">by Vincent van Gogh</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 3</div>
-                <div class="art-details">
-                    <div class="art-title">The Starry Night</div>
-                    <div class="art-artist">by Pablo Picasso</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 4</div>
-                <div class="art-details">
-                    <div class="art-title">Water Lily Pond</div>
-                    <div class="art-artist">by Georgia O'Keeffe</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 5</div>
-                <div class="art-details">
-                    <div class="art-title">The Persistence of Memory</div>
-                    <div class="art-artist">by Salvador Dalí</div>
-                </div>
-            </div>
-
-            <!-- Paintings 6-10 -->
-            <div class="art-item">
-                <div class="art-image">Painting 6</div>
-                <div class="art-details">
-                    <div class="art-title">Girl with a Pearl Earring</div>
-                    <div class="art-artist">by Johannes Vermeer</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 7</div>
-                <div class="art-details">
-                    <div class="art-title">The Birth of Venus</div>
-                    <div class="art-artist">by Sandro Botticelli</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 8</div>
-                <div class="art-details">
-                    <div class="art-title">American Gothic</div>
-                    <div class="art-artist">by Grant Wood</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 9</div>
-                <div class="art-details">
-                    <div class="art-title">The Scream</div>
-                    <div class="art-artist">by Edvard Munch</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 10</div>
-                <div class="art-details">
-                    <div class="art-title">The Last Supper</div>
-                    <div class="art-artist">by Leonardo da Vinci</div>
-                </div>
-            </div>
-
-            <!-- Paintings 11-15 -->
-            <div class="art-item">
-                <div class="art-image">Painting 11</div>
-                <div class="art-details">
-                    <div class="art-title">The Kiss</div>
-                    <div class="art-artist">by Gustav Klimt</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 12</div>
-                <div class="art-details">
-                    <div class="art-title">The Night Watch</div>
-                    <div class="art-artist">by Rembrandt</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 13</div>
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg');"></div>
                 <div class="art-details">
                     <div class="art-title">Mona Lisa</div>
                     <div class="art-artist">by Leonardo da Vinci</div>
+                    <div class="art-year">1503–1506</div>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
+            
             <div class="art-item">
-                <div class="art-image">Painting 14</div>
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Starry_Night_Over_the_Rhone.jpg/1280px-Starry_Night_Over_the_Rhone.jpg');"></div>
                 <div class="art-details">
-                    <div class="art-title">The Garden of Earthly Delights</div>
-                    <div class="art-artist">by Hieronymus Bosch</div>
+                    <div class="art-title">The Starry Night</div>
+                    <div class="art-artist">by Vincent van Gogh</div>
+                    <div class="art-year">1889</div>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
+            
             <div class="art-item">
-                <div class="art-image">Painting 15</div>
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/The_Girl_with_a_Pearl_Earring.jpg/800px-The_Girl_with_a_Pearl_Earring.jpg');"></div>
                 <div class="art-details">
-                    <div class="art-title">The Creation of Adam</div>
-                    <div class="art-artist">by Michelangelo</div>
+                    <div class="art-title">Girl with a Pearl Earring</div>
+                    <div class="art-artist">by Johannes Vermeer</div>
+                    <div class="art-year">1665</div>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
-
-            <!-- Paintings 16-20 -->
+            
             <div class="art-item">
-                <div class="art-image">Painting 16</div>
-                <div class="art-details">
-                    <div class="art-title">The School of Athens</div>
-                    <div class="art-artist">by Raphael</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 17</div>
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Tsunami_by_hokusai_19th_century.jpg/1280px-Tsunami_by_hokusai_19th_century.jpg');"></div>
                 <div class="art-details">
                     <div class="art-title">The Great Wave off Kanagawa</div>
-                    <div class="art-artist">by Hokusai</div>
+                    <div class="art-artist">by Katsushika Hokusai</div>
+                    <div class="art-year">1831</div>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
+            
             <div class="art-item">
-                <div class="art-image">Painting 18</div>
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg');"></div>
                 <div class="art-details">
-                    <div class="art-title">The Starry Night Over the Rhône</div>
+                    <div class="art-title">Starry Night Over the Rhône</div>
                     <div class="art-artist">by Vincent van Gogh</div>
+                    <div class="art-year">1888</div>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
+            
             <div class="art-item">
-                <div class="art-image">Painting 19</div>
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Van_Gogh_Self-Portrait_with_Straw_Hat_1887-Metropolitan.jpg/800px-Van_Gogh_Self-Portrait_with_Straw_Hat_1887-Metropolitan.jpg');"></div>
+                <div class="art-details">
+                    <div class="art-title">Self-Portrait with Straw Hat</div>
+                    <div class="art-artist">by Vincent van Gogh</div>
+                    <div class="art-year">1887</div>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+            
+            <div class="art-item">
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Pierre-Auguste_Renoir%2C_Le_Moulin_de_la_Galette.jpg/1280px-Pierre-Auguste_Renoir%2C_Le_Moulin_de_la_Galette.jpg');"></div>
+                <div class="art-details">
+                    <div class="art-title">Bal du moulin de la Galette</div>
+                    <div class="art-artist">by Pierre-Auguste Renoir</div>
+                    <div class="art-year">1876</div>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+            
+            <div class="art-item">
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Claude_Monet_-_Impressions%2C_Sunrise_-_Google_Art_Project.jpg/1280px-Claude_Monet_-_Impressions%2C_Sunrise_-_Google_Art_Project.jpg');"></div>
+                <div class="art-details">
+                    <div class="art-title">Impression, Sunrise</div>
+                    <div class="art-artist">by Claude Monet</div>
+                    <div class="art-year">1872</div>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+            
+            <div class="art-item">
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg/800px-Edvard_Munch%2C_1893%2C_The_Scream%2C_oil%2C_tempera_and_pastel_on_cardboard%2C_91_x_73_cm%2C_National_Gallery_of_Norway.jpg');"></div>
+                <div class="art-details">
+                    <div class="art-title">The Scream</div>
+                    <div class="art-artist">by Edvard Munch</div>
+                    <div class="art-year">1893</div>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+            
+            <div class="art-item">
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_naissance_de_V%C3%A9nus_-_Botticelli_-_Louvre.jpg/1280px-La_naissance_de_V%C3%A9nus_-_Botticelli_-_Louvre.jpg');"></div>
                 <div class="art-details">
                     <div class="art-title">The Birth of Venus</div>
                     <div class="art-artist">by Sandro Botticelli</div>
+                    <div class="art-year">1485–1486</div>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
+            
+            <!-- Famous Paintings 11-20 -->
             <div class="art-item">
-                <div class="art-image">Painting 20</div>
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Johannes_Vermeer_-_The_Art_of_Painting_-_Google_Art_Project.jpg/1280px-Johannes_Vermeer_-_The_Art_of_Painting_-_Google_Art_Project.jpg');"></div>
                 <div class="art-details">
-                    <div class="art-title">The Arnolfini Portrait</div>
-                    <div class="art-artist">by Jan van Eyck</div>
+                    <div class="art-title">The Art of Painting</div>
+                    <div class="art-artist">by Johannes Vermeer</div>
+                    <div class="art-year">1666–1668</div>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
-
-            <!-- Paintings 21-25 -->
+            
             <div class="art-item">
-                <div class="art-image">Painting 21</div>
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Jacques-Louis_David%2C_Le_Serment_des_Horaces.jpg/1280px-Jacques-Louis_David%2C_Le_Serment_des_Horaces.jpg');"></div>
                 <div class="art-details">
-                    <div class="art-title">The Hay Wain</div>
-                    <div class="art-artist">by John Constable</div>
+                    <div class="art-title">The Oath of the Horatii</div>
+                    <div class="art-artist">by Jacques-Louis David</div>
+                    <div class="art-year">1784</div>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
+            
             <div class="art-item">
-                <div class="art-image">Painting 22</div>
-                <div class="art-details">
-                    <div class="art-title">The Sleeping Gypsy</div>
-                    <div class="art-artist">by Henri Rousseau</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 23</div>
-                <div class="art-details">
-                    <div class="art-title">The Son of Man</div>
-                    <div class="art-artist">by René Magritte</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 24</div>
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/WLA_metmuseum_The_Dance_Class_Edgar_Degas.jpg/1280px-WLA_metmuseum_The_Dance_Class_Edgar_Degas.jpg');"></div>
                 <div class="art-details">
                     <div class="art-title">The Dance Class</div>
                     <div class="art-artist">by Edgar Degas</div>
+                    <div class="art-year">1874</div>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
+            
             <div class="art-item">
-                <div class="art-image">Painting 25</div>
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg/1280px-Claude_Monet_-_Water_Lilies_-_1906%2C_Ryerson.jpg');"></div>
                 <div class="art-details">
-                    <div class="art-title">The Luncheon on the Grass</div>
-                    <div class="art-artist">by Édouard Manet</div>
+                    <div class="art-title">Water Lilies</div>
+                    <div class="art-artist">by Claude Monet</div>
+                    <div class="art-year">1906</div>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
-
-            <!-- Paintings 26-30 -->
+            
             <div class="art-item">
-                <div class="art-image">Painting 26</div>
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/800px-1665_Girl_with_a_Pearl_Earring.jpg');"></div>
                 <div class="art-details">
-                    <div class="art-title">The Swing</div>
-                    <div class="art-artist">by Jean-Honoré Fragonard</div>
+                    <div class="art-title">Girl with a Pearl Earring (detail)</div>
+                    <div class="art-artist">by Johannes Vermeer</div>
+                    <div class="art-year">1665</div>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
+            
             <div class="art-item">
-                <div class="art-image">Painting 27</div>
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/PicassoGuernica.jpg/1280px-PicassoGuernica.jpg');"></div>
                 <div class="art-details">
-                    <div class="art-title">The Card Players</div>
+                    <div class="art-title">Guernica</div>
+                    <div class="art-artist">by Pablo Picasso</div>
+                    <div class="art-year">1937</div>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+            
+            <div class="art-item">
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Palais_du_Luxembourg%2C_Salon_du_plafond_-_Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg/1280px-Palais_du_Luxembourg%2C_Salon_du_plafond_-_Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg');"></div>
+                <div class="art-details">
+                    <div class="art-title">Liberty Leading the People</div>
+                    <div class="art-artist">by Eugène Delacroix</div>
+                    <div class="art-year">1830</div>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+            
+            <div class="art-item">
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/1280px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg');"></div>
+                <div class="art-details">
+                    <div class="art-title">The Birth of Venus (detail)</div>
+                    <div class="art-artist">by Sandro Botticelli</div>
+                    <div class="art-year">1485–1486</div>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+            
+            <div class="art-item">
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Paul_C%C3%A9zanne%2C_Les_Grandes_Baigneuses%2C_1898-1905.jpg/1280px-Paul_C%C3%A9zanne%2C_Les_Grandes_Baigneuses%2C_1898-1905.jpg');"></div>
+                <div class="art-details">
+                    <div class="art-title">The Large Bathers</div>
                     <div class="art-artist">by Paul Cézanne</div>
+                    <div class="art-year">1898–1905</div>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
+            
             <div class="art-item">
-                <div class="art-image">Painting 28</div>
+                <div class="art-image" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Van_Gogh_-_Terrasse_des_Caf%C3%A9s_an_der_Place_du_Forum_in_Arles_am_Abend_%28Der_%C3%96ffentliche_Garten%29.jpeg/1280px-Van_Gogh_-_Terrasse_des_Caf%C3%A9s_an_der_Place_du_Forum_in_Arles_am_Abend_%28Der_%C3%96ffentliche_Garten%29.jpeg');"></div>
                 <div class="art-details">
-                    <div class="art-title">The Kiss</div>
-                    <div class="art-artist">by Francesco Hayez</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 29</div>
-                <div class="art-details">
-                    <div class="art-title">The Night Café</div>
+                    <div class="art-title">Cafe Terrace at Night</div>
                     <div class="art-artist">by Vincent van Gogh</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 30</div>
-                <div class="art-details">
-                    <div class="art-title">The Tower of Babel</div>
-                    <div class="art-artist">by Pieter Bruegel</div>
-                </div>
-            </div>
-
-            <!-- Paintings 31-32 -->
-            <div class="art-item">
-                <div class="art-image">Painting 31</div>
-                <div class="art-details">
-                    <div class="art-title">The Storm on the Sea of Galilee</div>
-                    <div class="art-artist">by Rembrandt</div>
-                </div>
-            </div>
-            <div class="art-item">
-                <div class="art-image">Painting 32</div>
-                <div class="art-details">
-                    <div class="art-title">The Birth of Venus</div>
-                    <div class="art-artist">by William-Adolphe Bouguereau</div>
+                    <div class="art-year">1888</div>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
         </div>
@@ -418,7 +495,18 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 ArtHub | Paintings Collection</p>
+        <p>&copy; 2025 ArtHub | Masterpieces Collection</p>
     </footer>
+
+    <script>
+        // Simple interaction for the view buttons
+        document.querySelectorAll('.view-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const title = this.parentElement.querySelector('.art-title').textContent;
+                const artist = this.parentElement.querySelector('.art-artist').textContent;
+                alert(`Viewing details for: ${title} ${artist}`);
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/* Error messages */
+
 .error-text {
     color: #d33;
     font-size: 0.9rem;
@@ -15,7 +15,6 @@
     display: none;
 }
 
-/* Password strength meter */
 .password-strength-meter {
     margin-top: 0.5rem;
     width: 100%;
