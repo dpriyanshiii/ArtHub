@@ -1,0 +1,70 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Renaissance Revisited",
+      "description": "A contemporary reinterpretation of Renaissance masterpieces by emerging artists. This exhibition bridges classical techniques with modern perspectives.",
+      "date": "June 15-30, 2025",
+      "time": "10:00 AM - 6:00 PM Daily",
+      "location": "Grand Art Gallery, Florence",
+      "price": "€15 (Students €10)",
+      "type": "exhibition",
+      "buttons": [
+        {
+          "text": "Book Tickets",
+          "class": "btn-primary",
+          "icon": "fas fa-ticket-alt"
+        },
+        {
+          "text": "More Details", 
+          "class": "btn-secondary",
+          "icon": "fas fa-info-circle"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Portrait Masterclass",
+      "description": "Join master portrait artist Elena Vasquez for an intensive one-day workshop on capturing the human essence in charcoal and oil.",
+      "date": "July 5, 2025",
+      "time": "9:00 AM - 5:00 PM",
+      "location": "ArtHub Studios, Paris",
+      "price": "€120 (Materials included)",
+      "type": "workshop",
+      "buttons": [
+        {
+          "text": "Register Now",
+          "class": "btn-primary",
+          "icon": "fas fa-ticket-alt"
+        },
+        {
+          "text": "Workshop Details",
+          "class": "btn-secondary",
+          "icon": "fas fa-info-circle"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Modern Art Week",
+      "description": "A week-long celebration of modern art movements featuring gallery tours, artist talks, and live painting demonstrations.",
+      "date": "August 12-18, 2025",
+      "time": "Various Times",
+      "location": "Various Locations, Berlin",
+      "price": "Free - €25 per event",
+      "type": "festival",
+      "buttons": [
+        {
+          "text": "View Schedule",
+          "class": "btn-primary",
+          "icon": "fas fa-calendar-plus"
+        },
+        {
+          "text": "Event Guide",
+          "class": "btn-secondary", 
+          "icon": "fas fa-info-circle"
+        }
+      ]
+    }
+  ]
+}
