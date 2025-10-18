@@ -143,28 +143,20 @@ document.addEventListener('DOMContentLoaded', function() {
         input.style.borderColor = '#5a4a3a';
     }
     
-    // Form submission handler
     form.addEventListener('submit', function(e) {
+    // Validate all fields
+    const isFullNameValid = validateFullName();
+    const isUsernameValid = validateUsername();
+    const isEmailValid = validateEmail();
+    const isPasswordValid = validatePassword();
+    
+    // If validation fails, prevent submission
+    if (!isFullNameValid || !isUsernameValid || !isEmailValid || !isPasswordValid) {
         e.preventDefault();
-        
-        // Validate all fields
-        const isFullNameValid = validateFullName();
-        const isUsernameValid = validateUsername();
-        const isEmailValid = validateEmail();
-        const isPasswordValid = validatePassword();
-        
-        // If all valid, submit the form (in a real app, you'd send to server)
-        if (isFullNameValid && isUsernameValid && isEmailValid && isPasswordValid) {
-            errorBox.textContent = '';
-            errorBox.style.display = 'none';
-            
-            // In a real application, you would submit the form here
-            alert('Form is valid! Ready for submission to server.');
-            // form.submit();
-        } else {
-            errorBox.textContent = 'Please fix the errors in the form';
-            errorBox.style.display = 'block';
-        }
+        errorBox.textContent = 'Please fix the errors in the form';
+        errorBox.style.display = 'block';
+    }
+    // If validation passes, let the form submit naturally to PHP
     });
     
     // Real-time validation as user types
